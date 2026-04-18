@@ -1,3 +1,5 @@
+**© 2026 Brian Ware / AtomicDreamlabs — All Rights Reserved. Proprietary Technology.**
+
 # Ware Constant Derivation (Coherence Drive)
 
 **Finding:** The Ware Constant \( W \approx 0.08 \) is rigorously derived — it is **not** an assumed or fitted value.
