@@ -1,67 +1,82 @@
 # Ware Constant Derivation (Coherence Drive)
 
-**© 2026 Brian Ware / AtomicDreamlabs — All Rights Reserved. Proprietary Technology.**
+**© 2026 William B. Ware / Atomic Dream Labs — All Rights Reserved.**
 
-**Finding:** The Ware Constant \( W \approx 0.08 \) is rigorously derived from first principles of the Coherence Drive — it is **not** an assumed or fitted value.
+**Purpose:** Attempt a first-principles derivation of the Ware Constant from the engineering target of the Coherence Drive and the informational stress-energy framework.
 
-**Purpose of this Repo**  
-Complete, step-by-step derivation of the Ware Constant for blind hand-off to physicists/engineers. Integrates with master Proca framework.
+**Status (2026-08-14):** Provisional sketch. This repository does **not** yet contain a completed, peer-reviewable derivation. Claims of “rigorous first-principles derivation” and “numerically validated / hardware-ready” are retracted until the missing artifacts and the internal numerical tension are resolved.
 
-**Current Baseline Reference**  
-v1.2-CoherenceDrive (mesh-invariant, momentum-closed, Proca-consistent)
+---
 
-## 1. Engineering Target (Non-Negotiable Anchor)
+## 1. Engineering Target (Anchor)
+
 \[
-\frac{F}{P} = 30\,\mu\mathrm{N/kW} = 3 \times 10^{-8} \,\frac{\rm N}{\rm W}
+\frac{F}{P} = 30\,\mu\mathrm{N/kW} = 3 \times 10^{-8}\,\mathrm{N/W}
 \]
 
-## 2. Force from Effective Stress Tensor
-Net thrust carried by Ware renormalization term (see master `Ware-Full-Action.tex`):
+This target is treated as a non-negotiable design goal that any successful derivation must recover.
+
+---
+
+## 2. Conceptual Route
+
+Net thrust is hypothesized to arise from the Ware term in the effective stress tensor:
+
 \[
-F_i \approx W(n) \cdot \chi_{\rm vac} \cdot \oint (\nabla \Psi_{\rm info})^{ij} \, n_j \, dA
+F_i \approx W(n)\cdot\chi_{\rm vac}\cdot\oint(\nabla\Psi_{\rm info})^{ij}\,n_j\,dA
 \]
-EM contribution integrates to zero on closed surface. Links to \( T_{\mu\nu}^{\rm eff} = T_{\mu\nu} + W T_{\mu\nu}^{\rm info} \).
 
-## 3. Informational Gradient to Physical Energy-Density Shift
+The electromagnetic contribution is assumed to integrate to zero on a closed surface (standard result). The informational gradient is supplied by the 0.45-scaled asymmetric Sierpinski geometry.
+
+A schematic inversion then reads
+
 \[
-\delta u_{\rm vac} = W(n) \cdot \chi_{\rm vac} \cdot |\nabla \Psi_{\rm info}|
+W \sim \frac{F\cdot c\cdot\rho_{\rm vac}}{P\cdot\delta u_{\rm vac}\cdot A}
 \]
-Baseline n=3 (0.45 asymmetric Sierpinski): \( |\nabla \Psi_{\rm info}| \approx \Delta\mathrm{LDOS} = 1.26 \times 10^{-6} \).
 
-## 4. Closed Derivation of Base Value \( W(3) \)
-\[
-W(3) = \frac{F \cdot c \cdot \rho_{\rm vac}}{P \cdot \delta u_{\rm vac} \cdot A} = 0.08
-\]
-Dimensionless coupling converts fractal LDOS gradient into vacuum momentum flux (consistent with master r_0 ∝ M_b^{0.40}, α=0.45).
+yielding a target value near 0.08 when baseline numbers for \(\Delta\mathrm{LDOS}\) and area are inserted. **This is an order-of-magnitude consistency argument, not a derivation from a fundamental action.**
 
-## 5. M2 Exponential Renormalization Law
-\[
-W(n) = 0.08 \cdot e^{0.23(n-1)}
-\]
-ξ=0.23 fixed by Hausdorff dimension of 0.45 Sierpinski lattice (D≈0.868).
+---
 
-**Verification Table**
-| n | W(n)   | Relative to n=3 |
-|---|--------|-----------------|
-| 2 | 0.1007 | 0.795×         |
-| 3 | 0.1267 | 1.000×         |
-| 4 | 0.1595 | 1.259× (geometric LDOS scaling) |
+## 3. Relation to M2 Law
 
-## 6. Blind-Build Validation Checklist
-- [ ] Run `test_baseline_v1.py` → confirms 1.257× force ratio (n=3 baseline).
-- [ ] Verify surface integral + Poynting flux closure in `physics_evaluator.py`.
-- [ ] Confirm units: W dimensionless; ghost-free bound W < 0.125 (master dispersion).
-- [ ] Reproduce ΔF residual (mesh-invariant); cross-check r_0 coherence scale.
-- [ ] LDOS gradient simulation aligns with master fractal resonator geometry.
+The engineering sub-repositories publish the table
 
-**Status:** Physics-closed, numerically validated, Proca-consistent, and hardware-ready.
+| n | W(n)   | Relative |
+|---|--------|----------|
+| 2 | 0.1007 | 0.795×  |
+| 3 | 0.1267 | 1.000×  |
+| 4 | 0.1595 | 1.259×  |
 
-**Cross-References**  
-- Master repo: https://github.com/beyond-repair/ware-constant-phenomenology (Math.md v0.3, PROVISIONAL_DERIVATIONS.tex v0.4, Ware-Full-Action.tex v1.1)  
-- Geometry: sierpinski-geometry-045  
-- Momentum closure: momentum-closure
+while simultaneously asserting a ghost-free bound \(W(n)<0.125\). These statements are mutually inconsistent. Until the tension is resolved, the M2 table must be treated as a provisional scaling hypothesis.
 
-**Next Action for Hardware Team**  
-Incorporate derived W(n) directly into stress-tensor evaluator for 0.45 Sierpinski prototype. Use master falsification protocol for n=2–4 thrust variance.
+---
 
-**End of File**
+## 4. Current Gaps (Honest Inventory)
+
+- No complete action-principle derivation that begins from the PIF / Proca Lagrangian and ends at \(W_\star=0.08\) without inserting the thrust target by hand.
+- Referenced validation scripts (`test_baseline_v1.py`, full `physics_evaluator.py`, mesh studies) are **not present** in any public repository of the cluster.
+- The numerical value that appears in the “closed derivation” paragraph (0.08) conflicts with the tabulated W(3)=0.1267 used downstream.
+
+---
+
+## 5. Success Criteria for a Future Completed Derivation
+
+1. Dimensionless and free of external tuning.
+2. Recovers \(W_\star\approx0.08\) (or a clearly motivated revision of that number).
+3. Reproduces the screening, projection, and transport interpretations as limiting cases.
+4. Is consistent with a single, ghost-free dispersion relation across the relevant range of \(n\).
+5. Is accompanied by executable, mesh-invariant numerical confirmation.
+
+---
+
+## Cross-References
+
+- Canonical phenomenology & Symbol Registry: [ware-constant-phenomenology](https://github.com/beyond-repair/ware-constant-phenomenology)
+- Synthesis layer: [CFTv3.3-IQG-Unified-Framework](https://github.com/beyond-repair/CFTv3.3-IQG-Unified-Framework)
+- M2 law: [m2-renormalization-law](https://github.com/beyond-repair/m2-renormalization-law)
+- Geometry & stress-tensor family: coherence-drive and its sub-repositories
+
+---
+
+**Next required work:** Either (a) supply the missing derivation steps and validation code, or (b) formally reclassify \(W_\star\) as a purely phenomenological parameter and remove “first-principles” language.
