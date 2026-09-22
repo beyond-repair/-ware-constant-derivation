@@ -10,30 +10,17 @@
 
 ---
 
-## Why this exists
+This repository contains **no derivation files**. A GitHub description that derives \(W\) from the Coherence Drive thrust target is not a proof and is not to be treated as one.
 
-Phenomenology can *use* \(W_\star \approx 1/(4\pi)\).  
-Derivation would *explain* it from a stated action / matching principle — without smuggling the thrust target in as the answer.
+Inventory of what *is* proved vs assumed elsewhere:
 
-## Why you need it
-
-| Need | Reality |
-|------|---------|
-| Pointers to preferred matching | Yes — see links below |
-| Completed bulk proof in-tree | **No** — README-only stub |
-| “Derived from 30 μN/kW” | **Not a derivation** — that is a consistency check at best |
-
-## How it works (intended)
-
-1. Start from documented action / boundary matching (phenomenology docs).  
-2. Arrive at \(W_\star\) **or** formally keep \(W_\star\) phenomenological.  
-3. Never treat F/P target back-solves as first principles.
+- [ware-constant-phenomenology/DERIVATION_INVENTORY.md](https://github.com/beyond-repair/ware-constant-phenomenology/blob/main/DERIVATION_INVENTORY.md)
+- [ware-constant-phenomenology/AUDIT_2026-09-22.md](https://github.com/beyond-repair/ware-constant-phenomenology/blob/main/AUDIT_2026-09-22.md)
+- Conditional solid-angle route: `WSTAR_ENTROPIC_DERIVATION.md` (axioms E1–E4)
+- Matching route: `WSTAR_ACTION_DERIVATION.md` (\(c_\star=1\) convention)
+- Failed spectral route: `WSTAR_FIRST_PRINCIPLES_NOTE.md`
 
 **Preferred phenomenological value:** \(W_\star = 1/(4\pi)\).  
-**Recursive engineering weight:** \(W(n)=0.08\,e^{0.23(n-3)}\) per [MATH_THEORY_CLOSURE](https://github.com/beyond-repair/coherence-drive/blob/main/docs/MATH_THEORY_CLOSURE.md).
+**Recursive engineering weight:** \(W(n)=0.08\,e^{0.23(n-3)}\).
 
-## Canonical sources
-
-- [ware-constant-phenomenology](https://github.com/beyond-repair/ware-constant-phenomenology) — `WSTAR_*`, bulk reduction notes  
-- [CFTv3.3-IQG-Unified-Framework](https://github.com/beyond-repair/CFTv3.3-IQG-Unified-Framework) — consistency ledger  
-- [thrust-target-30](https://github.com/beyond-repair/thrust-target-30) — design goal only
+Do not back-solve \(W\) from \(3\times 10^{-8}\,\mathrm{N/W}\).
