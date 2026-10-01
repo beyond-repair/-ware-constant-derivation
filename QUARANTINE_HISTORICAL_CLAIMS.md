@@ -1,10 +1,15 @@
 # Quarantine — historical claims not upstream of 5R–11I
 
 **Date:** 2026-09-23. Provenance only. Do not feed these into ΔF_Cas, K_log, or W_*.
+**Addendum:** 2026-10-01 pinch-family falsification.
 
 ## Algebraically wrong
 
 CFT v3.1 Paper 2: from v^2/r = sqrt(ζ G M / r^2) one gets v^4 = ζ G M (S=1), **not** v^4 = ζ^2 G^2 M^2. Superseded.
+
+## Algebraically circular
+
+beta = -0.005888 = -92/15625 = (2/25)^3 - (2/25)^2. Solving delta^3 - delta^2 - beta = 0 recovers 0.08 because 0.08 was used to build beta. Not an independent derivation. See FALSIFICATION_2026-10-01_PINCH.md.
 
 ## Underived constitutive insertions
 
@@ -18,6 +23,7 @@ CFT v3.1 Paper 2: from v^2/r = sqrt(ζ G M / r^2) one gets v^4 = ζ G M (S=1), *
 - 0.45 as a force parameter; λ=6 as a thrust threshold; 92% pinch; 30 μN/kW as physics
 - hybrid 0.795:1:1.993; old M2 n-1 indexing
 - silent 0.08 = 1/(4π)
+- a Neumann or Dirichlet neck whose gap ratio crosses 0.08 (level set, not a fixed point)
 
 ## Three unjoined programs
 
