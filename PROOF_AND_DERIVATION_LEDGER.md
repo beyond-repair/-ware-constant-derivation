@@ -1,6 +1,7 @@
 # Action Principle for W — Proof and Derivation Ledger
 
-**Review version:** 2026-09-23
+**Review version:** 2026-09-23  
+**Addendum:** 2026-10-01 pinch-family falsification
 
 **Rule:** Do not promote a model assumption, regulator-dependent result, phenomenological parameter, or unresolved extension into a derived theorem.
 
@@ -76,6 +77,20 @@ UV: I2(k) ~ 1/(d k^2); measure gives int dk k^{d-3}. d=2 log, d=3 ~ Lambda, d=4 
 
 Z_ren OPEN.
 
+## 2026-10-01 pinch-family test
+
+NOT DERIVED. Full record: FALSIFICATION_2026-10-01_PINCH.md. Check: verify_pinch_cubic.py.
+
+beta = -92/15625 = (2/25)^3 - (2/25)^2. The cubic recovers 0.08 because that value built beta. CIRCULAR.
+
+Neumann dumbbell: lambda_1 collapses as neck width drops. No anomalous zero of the tested scale beta. Gap ratio crosses 0.08 only as a geometry-dependent level set.
+
+Dirichlet dumbbell and metric-graph bridge: no sign change in the tested betas.
+
+Conductance pinch: beta = 1 identically. Dirichlet interval: engineering fixed point pi^2, gap ratio 1/4.
+
+Outcome on these families: no universal Q. Spectral collapse is not a topological mouth.
+
 ## Quarantine
 
 NOT DERIVED: 0.08, 0.23, W(n), S_W, propulsion, unique local theory, Lorentzian healthy mode.
@@ -89,8 +104,9 @@ Local K_sym consistency + finite-graph Hermitianity: DERIVED.
 Unrenormalized Z_loop<0 for the stated kernel: DERIVED (model-specific).
 Renormalized propagating W(x): OPEN.
 W=0.08, 0.23, W(n), propulsion: NOT DERIVED.
+Pinch-family selection of Q≈0.08: NOT DERIVED (2026-10-01).
 
-Next isolated package: regulator -> Gamma^(2)(p) -> counterterms -> Z_ren -> Lorentzian pole.
+Next isolated package: regulator -> Gamma^(2)(p) -> counterterms -> Z_ren -> Lorentzian pole. An I(ell) written only in {a_k} before any numerical target, then partial_{ln ell} I = 0 stable under neck length, chamber volume, Dirichlet versus Neumann, and mesh refinement.
 
 ```
 experimental_validation     = false
