@@ -1,9 +1,18 @@
 # Falsification — pinch family heat trace, 2026-10-01
 
 **Status:** NOT DERIVED.  
+**Lock:** STATUS_LOCK_2026-10-01.md  
 **Rule:** 0.08 is forbidden upstream of the final comparison.  
 **Classification:** RESEARCH.  
 **experimental_validation:** false
+
+## Locked conclusion
+
+0.08 is falsified as a universal consequence of the tested (X, L, R) sequences.
+
+This does not say Q ≠ 0.08 in every construction. It says the proposed universality does not survive the admissible families already tested.
+
+Status: 0.08 is a phenomenological candidate, not a derived invariant.
 
 ## Sequence under test
 
@@ -21,7 +30,7 @@ With delta = 2/25,
 beta = delta^3 - delta^2 = -92/15625 = -0.005888
 ```
 
-exactly. The polynomial delta^3 - delta^2 - beta = 0 then has roots 0.08, approximately 0.9940412, and approximately -0.0740412. The root 0.08 is recovered because it was used to build beta. This number is barred from the sequence.
+exactly. The polynomial delta^3 - delta^2 - beta = 0 then has roots 0.08, approximately 0.9940412, and approximately -0.0740412. The root 0.08 is recovered because it was used to build beta. The cubic route is closed unless beta is derived independently.
 
 Reproduction: `python3 verify_pinch_cubic.py`.
 
@@ -42,7 +51,14 @@ Chamber 8, neck length 5. First positive eigenvalue falls as the neck narrows. C
 | 6 | 0.018491 | 0.19599 | 0.66566 |
 | 8 | 0.022338 | 0.25140 | 1.42965 |
 
-The gap ratio is monotonic on this family and crosses 0.08 between w=2 and w=3. That is a level set of a geometry-dependent ratio, not a zero of partial_{ln w}.
+The gap ratio is monotone on this family and meets 0.08 between w=2 and w=3 (about 2.4 by linear interpolation). That is a level set:
+
+```text
+R(w_*) = 0.08
+R'(w_*) ≠ 0
+```
+
+It is not a fixed point. A fixed point would require dR/d ln w = 0. That failed. Change chamber size or neck length and the crossing moves.
 
 ### Dirichlet grid dumbbell
 
@@ -59,11 +75,21 @@ Two loops of length 1 joined by a bridge of length ell. g = ell^2 lambda_1 is st
 
 ## Outcomes
 
-1. Universal root near 0.08: not observed. Rejected on these families.
-2. Geometry-dependent level crossing: yes. Neumann gap ratio crosses 0.08 at a width fixed by chamber size and neck length.
-3. No nonzero anomalous fixed point of the scale beta: this is the result for every beta computed from L_ell.
+1. Universal root near 0.08: falsified on these families.
+2. Geometry-dependent level crossing: yes. Not a stationary point.
+3. No nonzero anomalous fixed point of the scale beta: result for every beta computed from L_ell.
 
-Nearby spectral numbers such as 1/6 and 1/12 ≈ 0.0833 are ordinary Seeley coefficients. They are not 0.08.
+Boundary conditions matter. A topological mouth that universally generates a particular counter-pressure is unsupported.
+
+Neumann near-zero splitting with bulk scale O(1) is a spectral phenomenon. It is not an informational 8% law.
+
+1/6 and 1/12 remain comparison values only. Proximity to 0.08 is not candidacy.
+
+## Missing object
+
+No scale functional has yet been defined as I[L_ell] = F(a0, a_{1/2}, a1, ...) before any numerical target. Until that exists, another numerical hunt is circular.
+
+Required order: derive I, derive beta_I, find a stationary point, test neck length / chamber size / boundary condition / mesh / pinch family, only then compare the value at ell_* with 0.08.
 
 ## What remains locked
 
