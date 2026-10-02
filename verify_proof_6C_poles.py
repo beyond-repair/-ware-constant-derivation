@@ -3,7 +3,7 @@
 from __future__ import annotations
 import sympy as sp
 
-def main() -> None:
+def main() -> dict:
     m2, Z, lam, q = sp.symbols("m_R2 Z_R lambda_R q")
     qA = sp.solve(m2 - Z * q, q)[0]
     assert sp.simplify(qA - m2 / Z) == 0
@@ -23,6 +23,7 @@ def main() -> None:
     print("  Case A: q=m_R2/Z_R, dGamma/dq=-Z_R")
     print("  Case B: residues opposite when Delta>0")
     print("  Cut threshold: max x(1-x)=1/4 => q_th=4 omega^2")
+    return {"status": "PASS"}
 
 if __name__ == "__main__":
     main()

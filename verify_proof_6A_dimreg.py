@@ -16,7 +16,7 @@ def integrated_I2():
     J = (d + 1) * B_gamma(d / 2 + 1) + (d - 2) * B_gamma(d / 2 + 2) + B_gamma(d / 2 + 3)
     return sp.simplify((pref * J).rewrite(sp.gamma)), eps, omega
 
-def main() -> None:
+def main() -> dict:
     expr, eps, omega = integrated_I2()
     series = expr.series(eps, 0, 1)
     pole = series.coeff(1 / eps)
@@ -33,6 +33,7 @@ def main() -> None:
     print("  I2_DR pole = -ω^2/(32 π^2 ε)")
     print("  finite = ω^2/(32 π^2) [γE - log(4π) - 4/3 + log(ω^2)]")
     print("  Z_loop_DR pole = +ω^2/(64 π^2 ε)  under Z = -I2/2")
+    return {"status": "PASS"}
 
 if __name__ == "__main__":
     main()

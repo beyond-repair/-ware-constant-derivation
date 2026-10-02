@@ -8,7 +8,7 @@ from fractions import Fraction
 import numpy as np
 
 
-def main() -> None:
+def main() -> dict:
     delta = Fraction(2, 25)
     beta = delta**3 - delta**2
     assert beta == Fraction(-92, 15625)
@@ -17,6 +17,7 @@ def main() -> None:
     assert any(abs(r.real - 0.08) < 1e-12 and abs(r.imag) < 1e-12 for r in roots)
     print("circular: beta", beta, "recovers input root 0.08")
     print("other roots", roots)
+    return {"beta": beta, "roots": roots}
 
 
 if __name__ == "__main__":

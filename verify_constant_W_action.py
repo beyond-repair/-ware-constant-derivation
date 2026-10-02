@@ -19,7 +19,7 @@ def v2_1loop(omega2: float, W: float, evals: np.ndarray) -> float:
     return -0.5 * float(np.sum(evals**2 / (omega2 - W * evals) ** 2))
 
 
-def main() -> None:
+def main() -> dict:
     rng = np.random.default_rng(0)
     A = rng.normal(size=(12, 8))
     L = A @ A.T
@@ -57,8 +57,18 @@ def main() -> None:
     print(f"  λ_max={lam_max:.6f}  W_crit={W_crit:.6f}  W={W:.6f}")
     print(f"  Tr source={source_tr:.12f}")
     print(f"  spec source={source_spec:.12f}")
+    v_near = v_1loop(omega2, W_near, evals)
     print(f"  V''={d2V_exact:.12f}")
-    print(f"  V(W_near)={v_1loop(omega2, W_near, evals):.6f}")
+    print(f"  V(W_near)={v_near:.6f}")
+    return {
+        "lam_max": lam_max,
+        "W_crit": W_crit,
+        "W": W,
+        "source_tr": source_tr,
+        "source_spec": source_spec,
+        "d2V": d2V_exact,
+        "V_near": v_near,
+    }
 
 
 if __name__ == "__main__":
