@@ -11,12 +11,12 @@ requires-python = ">=3.10"
 license = { text = "All Rights Reserved" }
 authors = [{ name = "Brian Ware" }]
 dependencies = [
-  "numpy>=1.25.0",
-  "sympy>=1.12",
+  "numpy>=1.25.0,<3",
+  "sympy>=1.12,<2",
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0"]
+dev = ["pytest>=8.0,<9"]
 
 [project.scripts]
 ware-constant-checks = "run_derivation_checks:main"
@@ -32,6 +32,7 @@ py-modules = [
   "verify_proof_6C_poles",
   "verify_proof_7B_hs",
   "verify_proofs_5R_7",
+  "main",
 ]
 
 [tool.pytest.ini_options]

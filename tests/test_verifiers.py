@@ -94,3 +94,10 @@ def test_spectral_source_matches_trace_on_seed_0():
     source_spec = constant_w.spectral_source(omega2, w, evals)
     assert source_tr == pytest.approx(source_spec, rel=1e-12, abs=1e-12)
     assert constant_w.v2_1loop(omega2, w, evals) < 0
+
+
+def test_main_delegates_to_runner(monkeypatch):
+    import main as demo
+
+    monkeypatch.setattr(demo, "run_checks", lambda: 0)
+    assert demo.main() == 0
