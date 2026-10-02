@@ -2,7 +2,7 @@
 from __future__ import annotations
 import sympy as sp
 
-def main() -> None:
+def main() -> dict:
     W, g, om2, lam = sp.symbols("W g omega2 lambda", positive=True)
     eq = sp.Eq(W / g, lam / (2 * (om2 - W * lam)))
     sols = sp.solve(eq, W)
@@ -11,6 +11,7 @@ def main() -> None:
     Vpp_on = sp.simplify(Vpp.subs(om2 - W * lam, g * lam / (2 * W)))
     assert sp.simplify(Vpp_on - (g - 2 * W**2) / g**2) == 0
     print("PASS")
+    return {"status": "PASS"}
 
 if __name__ == "__main__":
     main()

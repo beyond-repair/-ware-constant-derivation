@@ -3,7 +3,7 @@ from __future__ import annotations
 import numpy as np
 import sympy as sp
 
-def main() -> None:
+def main() -> dict:
     x, q, w2 = sp.symbols("x q omega2", positive=True)
     p2 = -q
     Dlt = w2 - x * (1 - x) * q
@@ -24,8 +24,11 @@ def main() -> None:
     intP = float(np.trapezoid(Pnum(xs), xs))
     Im_num = intP / (64*np.pi)
     Im_an = (ww**2)*np.sqrt(1-4*ww/qq)/(16*np.pi)
-    assert abs(Im_num-Im_an)/Im_an < 1e-5
+    rel = abs(Im_num-Im_an)/Im_an
+    assert rel < 1e-5
     print("PASS")
+    print(f"  Im_num={Im_num:.12f}  Im_an={Im_an:.12f}  rel={rel:.3e}")
+    return {"status": "PASS", "Im_num": Im_num, "Im_an": Im_an, "rel": rel}
 
 if __name__ == "__main__":
     main()

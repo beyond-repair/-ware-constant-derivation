@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ware-constant-derivation"
+version = "0.1.0"
+description = "Claim-0 offline checks for constant-W action identities. Does not derive W ≈ 0.08."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "All Rights Reserved" }
+authors = [{ name = "Brian Ware" }]
+dependencies = [
+  "numpy>=1.25.0,<3",
+  "sympy>=1.12,<2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0,<9"]
+
+[project.scripts]
+ware-constant-checks = "run_derivation_checks:main"
+
+[tool.setuptools]
+py-modules = [
+  "run_derivation_checks",
+  "verify_constant_W_action",
+  "verify_pinch_cubic",
+  "verify_proof_6A_dimreg",
+  "verify_proof_6B_uv",
+  "verify_proof_6C1_im",
+  "verify_proof_6C_poles",
+  "verify_proof_7B_hs",
+  "verify_proofs_5R_7",
+  "main",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

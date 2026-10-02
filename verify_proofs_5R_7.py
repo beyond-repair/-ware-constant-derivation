@@ -23,7 +23,7 @@ def i2_density(k, omega, d):
     den = d * (omega**2 + k**2) ** 4
     return num / den
 
-def main():
+def main() -> dict:
     rng = np.random.default_rng(1)
     n, dx = 64, 1.0
     H0 = grid_laplacian_neumann(n, dx)
@@ -60,6 +60,7 @@ def main():
     print("  constant-W recovery: exact")
     print("  I2 density > 0 for d=2,3,4")
     print("  I2 ~ 1/(d k^2) at large k")
+    return {"rel": rel}
 
 if __name__ == "__main__":
     main()
