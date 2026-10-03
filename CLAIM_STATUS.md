@@ -5,6 +5,7 @@
 **Status lock:** [STATUS_LOCK_2026-10-01.md](STATUS_LOCK_2026-10-01.md)  
 **Addendum:** 2026-10-01 pinch-family falsification  
 **Addendum:** 2026-10-02 scale functional has no stationary point  
+**Addendum:** 2026-10-03 loop-dumbbell gap ratio stationary at I_*≈7.4815, not 0.08  
 **Claim-0:** 2026-10-02 offline verify runnable sketch (does not raise claim level)
 
 | Field | Value |
@@ -17,6 +18,8 @@
 | Thrust validated | **false** |
 | Constant-W action / source / concavity | **DERIVED** (checkable via `verify_constant_W_action.py`) |
 | K_sym / finite-graph / I2 positivity (model-specific) | **DERIVED** (checkable via `verify_proofs_5R_7.py` and 6A–7B verifies) |
+| Loop-dumbbell I_* = (pi/arccos(2/3)-1)^2 | **THEOREM** under Kirchhoff A4 (`verify_proof_15A_secular.py`) |
+| That I_* equals 0.08 | **FAILED** |
 | Local dynamical W(x) | **OPEN** |
 | Numerical W=0.08 from this action | **NOT DERIVED** |
 | Pinch-family heat trace selects 0.08 | **REJECTED** on tested families (`FALSIFICATION_2026-10-01_PINCH.md`) |
