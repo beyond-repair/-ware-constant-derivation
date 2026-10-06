@@ -4,7 +4,7 @@
 
 ### Constant-W action: derived. Local W(x) renormalized propagator: open. 0.08: not derived.
 
-[![RESEARCH](https://img.shields.io/badge/claim_≤2-7c3aed?style=for-the-badge)](https://github.com/beyond-repair/ADL-Governance)
+[![RESEARCH](https://img.shields.io/badge/claim_%E2%89%A42-7c3aed?style=for-the-badge)](https://github.com/beyond-repair/ADL-Governance)
 [![Claim-0](https://img.shields.io/badge/status-RUNNABLE_SKETCH-0ea5e9?style=for-the-badge)](CLAIM_STATUS.md)
 
 </div>
@@ -39,7 +39,7 @@ pytest -q
 
 `python main.py` is the same runner as `ware-constant-checks`.
 
-`ware-constant-checks` (or `python run_derivation_checks.py`) exits 0 when every in-tree assertion passes. Exit 0 is not a measurement of 0.08.
+`ware-constant-checks` (or `python run_derivation_checks.py`) exits 0 when every in-tree assertion passes. Exit 0 is not a measurement of 0.08. CI is `.github/workflows/checks.yml`.
 
 What a passing run reports, and does not claim:
 
@@ -49,6 +49,7 @@ What a passing run reports, and does not claim:
 | `verify_pinch_cubic.py` | \(\beta=(2/25)^3-(2/25)^2=-92/15625=-0.005888\), and the cubic recovers root 0.08 | Circular. 0.08 is the input \(\delta\), not an output |
 | `verify_proofs_5R_7.py` | Constant-\(W\) recovery is exact; \(I_2>0\) for \(d=2,3,4\); large-\(k\) tail \(\sim 1/(d k^2)\) | Discrete Neumann form vs matrix insertion is **not** exact (relative mismatch printed; tolerance 0.15) |
 | `verify_proof_6A_dimreg.py`, `verify_proof_6B_uv.py`, `verify_proof_6C_poles.py`, `verify_proof_6C1_im.py`, `verify_proof_7B_hs.py` | Stated Laurent / pole / cut / Hubbard–Stratonovich identities | \(Z_{\mathrm{ren}}\), a Lorentzian healthy mode, and \(S_W\) stay open |
+| `verify_proof_15A_secular.py` | Closed form \(I_*=(\pi/\arccos(2/3)-1)^2\approx 7.4815\) and secular residual at \(\ell=L/2\) | \(I_*\) is not 0.08 |
 
 Optional direct calls: `python verify_constant_W_action.py` and the other `verify_*.py` scripts.
 
@@ -64,6 +65,7 @@ Optional direct calls: `python verify_constant_W_action.py` and the other `verif
 | Z_ren, Lorentzian pole, S_W, W(n), 0.08, 0.23 | OPEN / NOT DERIVED |
 | Pinch-family heat trace selects Q≈0.08 | REJECTED on tested families (2026-10-01) |
 | beta=-0.005888 as an independent input | CIRCULAR |
+| Loop-dumbbell I_* equals 0.08 | FAILED (I_*≈7.4815) |
 
 ## In-tree
 
@@ -83,9 +85,11 @@ Optional direct calls: `python verify_constant_W_action.py` and the other `verif
 | [verify_proof_6C_poles.py](verify_proof_6C_poles.py) | Pole / residue / threshold algebra |
 | [verify_proof_6C1_im.py](verify_proof_6C1_im.py) | Cut imaginary part vs quadrature |
 | [verify_proof_7B_hs.py](verify_proof_7B_hs.py) | Hubbard–Stratonovich stationarity algebra |
+| [verify_proof_15A_secular.py](verify_proof_15A_secular.py) | Loop-dumbbell closed form; I_* is not 0.08 |
 | [run_derivation_checks.py](run_derivation_checks.py) | Runs every verifier and prints the numbers |
 | [main.py](main.py) | Same runner, `python main.py` |
 | [tests/](tests/) | pytest for the same checks |
+| [.github/workflows/checks.yml](.github/workflows/checks.yml) | CI runs pytest and the runner. Exit 0 is not a measurement of 0.08 |
 
 Inventory: [ware-constant-phenomenology/DERIVATION_INVENTORY.md](https://github.com/beyond-repair/ware-constant-phenomenology/blob/main/DERIVATION_INVENTORY.md)
 
