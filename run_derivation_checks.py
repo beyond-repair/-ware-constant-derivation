@@ -20,6 +20,7 @@ CHECKS = (
     "verify_proof_6C_poles",
     "verify_proof_6C1_im",
     "verify_proof_7B_hs",
+    "verify_proof_15A_secular",
 )
 
 
@@ -68,6 +69,14 @@ def main(argv: list[str] | None = None) -> int:
             failed += 1
             print("FAIL")
             traceback.print_exc()
+            continue
+        if isinstance(result, int):
+            if result != 0:
+                failed += 1
+                print("FAIL (nonzero exit)")
+                continue
+            print("PASS")
+            print("integer verifier exit 0; does not derive 0.08")
             continue
         if not isinstance(result, dict):
             failed += 1

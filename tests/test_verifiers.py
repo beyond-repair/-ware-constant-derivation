@@ -68,7 +68,7 @@ def test_algebraic_checks(module):
 
 
 def test_runner_lists_every_script_and_passes():
-    assert len(CHECKS) == 8
+    assert len(CHECKS) == 9
     assert run_all() == 0
 
 
@@ -101,3 +101,13 @@ def test_main_delegates_to_runner(monkeypatch):
 
     monkeypatch.setattr(demo, "run_checks", lambda: 0)
     assert demo.main() == 0
+
+
+def test_proof_15a_closed_form_is_not_008():
+    import verify_proof_15A_secular as proof_15a
+
+    assert proof_15a.main() == 0
+    theta = __import__("math").acos(2.0 / 3.0)
+    i_star = (__import__("math").pi / theta - 1.0) ** 2
+    assert i_star == pytest.approx(7.4815, abs=1e-3)
+    assert abs(i_star - 0.08) > 1.0

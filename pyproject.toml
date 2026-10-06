@@ -32,6 +32,7 @@ py-modules = [
   "verify_proof_6C_poles",
   "verify_proof_7B_hs",
   "verify_proofs_5R_7",
+  "verify_proof_15A_secular",
   "main",
 ]
 
