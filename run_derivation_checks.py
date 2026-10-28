@@ -43,8 +43,8 @@ def _summary(name: str, result: dict[str, Any]) -> str:
         )
     if name == "verify_proofs_5R_7":
         return (
-            f"discrete form rel. mismatch={result['rel']:.4f} "
-            "(not exact; script tolerance 0.15); constant-W recovery exact; I2>0"
+            f"discrete form rel. mismatch (1/2)={result['rel']:.2e} "
+            "(operator-consistent; tight tolerance); constant-W recovery exact; I2>0"
         )
     if name == "verify_proof_6C1_im":
         return (
