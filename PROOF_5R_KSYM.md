@@ -1,7 +1,8 @@
 # Proof 5R — Quadratic form and self-adjointness of K_sym
 
-**Date:** 2026-09-23
-**Claim level:** ≤ 2
+**Date:** 2026-09-23  
+**Correction:** 2026-10-28 (coefficient 1/4 → 1/2, operator-consistent)  
+**Claim level:** ≤ 2  
 Does not unfreeze Stage 1. Does not derive 0.08, 0.23, or a healthy W(x).
 
 ## Operator lock (no silent model change)
@@ -42,16 +43,18 @@ The insertion is second-order. It is not a bounded perturbation of H_0 on L^2(R^
 
 ## C. Quadratic form
 
-    Q_W[f] := <f, K_sym f> = int omega^2 f^2 - int W |grad f|^2 + (1/4) int (nabla^2 W) f^2.
+    Q_W[f] := <f, K_sym f> = int omega^2 f^2 - int W |grad f|^2 + (1/2) int (nabla^2 W) f^2.
 
 Constant check: W ≡ W_0 recovers Q = omega^2 ||f||_2^2 - W_0 ||grad f||_2^2.
 The form is symmetric for real W in C^2. Hence K_sym is symmetric on C_c^infty.
+
+**Correction note (2026-10-28):** Previous statement used coefficient 1/4. Independent integration by parts from the locked operator (and consistency with the expansion in section B) establishes coefficient 1/2. The 1/4 form is algebraically inconsistent with K_sym as defined.
 
 ## D. Semiboundedness / self-adjointness (conditional)
 
 Not claimed: unique physical domain; essential self-adjointness for arbitrary sign-changing W; any local positivity criterion.
 
-Sufficient Friedrichs condition: W in C_b^2(R^d) and W(x) ≤ 0 everywhere. Then -int W |grad f|^2 ≥ 0. The term (1/4) nabla^2 W is bounded, so Q_W ≥ (omega^2 - C_W) ||f||_2^2 with C_W = (1/4)||nabla^2 W||_infty. If omega^2 > C_W the form is closed and bounded below on a weighted H^1 space. The Friedrichs extension exists and is self-adjoint.
+Sufficient Friedrichs condition: W in C_b^2(R^d) and W(x) ≤ 0 everywhere. Then -int W |grad f|^2 ≥ 0. The term (1/2) nabla^2 W is bounded, so Q_W ≥ (omega^2 - C_W) ||f||_2^2 with C_W = (1/2)||nabla^2 W||_infty. If omega^2 > C_W the form is closed and bounded below on a weighted H^1 space. The Friedrichs extension exists and is self-adjoint.
 
 If W ≥ δ > 0 on an open set and the Laplacian spectrum is unbounded, high-momentum test functions make Q_W → -∞. Same continuum obstruction already locked for constant W>0.
 
@@ -66,7 +69,7 @@ Positivity of a variable-coefficient second-order operator is a global quadratic
 K_sym chosen to recover K(W0): MODEL DEFINITION + consistency DERIVED
 Finite-graph Hermitianity: DERIVED
 Pointwise expression: DERIVED for W in C^2, f in C_c^infty
-Quadratic form Q_W: DERIVED
+Quadratic form Q_W: DERIVED (coefficient 1/2, corrected 2026-10-28)
 Kato-Rellich as bounded perturbation: REJECTED
 Local inequalities as positivity: UNPROVED / REMOVED
 Friedrichs for W≤0, W in C_b^2, omega^2 large: CONDITIONAL, DERIVED
