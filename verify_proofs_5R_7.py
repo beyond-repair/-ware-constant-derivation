@@ -40,9 +40,14 @@ def main() -> dict:
     d2W[1:-1] = (W[2:] - 2 * W[1:-1] + W[:-2]) / dx**2
     d2W[0] = (W[1] - W[0]) / dx**2
     d2W[-1] = (W[-2] - W[-1]) / dx**2
-    q_form = q_grad - 0.25 * float(np.dot(d2W, f**2))
+    # Operator-consistent coefficient 1/2 (corrected 2026-10-28)
+    q_form = q_grad - 0.5 * float(np.dot(d2W, f**2))
     rel = abs(q_mat - q_form) / (abs(q_mat) + 1e-12)
-    assert rel < 0.15, rel
+    assert rel < 1e-8, rel
+    # Deliberate wrong-coefficient check (must fail if reintroduced)
+    q_wrong = q_grad - 0.25 * float(np.dot(d2W, f**2))
+    rel_wrong = abs(q_mat - q_wrong) / (abs(q_mat) + 1e-12)
+    assert rel_wrong > 1e-4, "wrong coefficient unexpectedly passed"
     W0 = 0.07
     V0 = 0.5 * (W0 * H0 + H0 * W0)
     assert np.allclose(V0, W0 * H0)
@@ -56,11 +61,12 @@ def main() -> dict:
         ratio = i2_density(k, omega, d) * d * k**2
         assert math.isclose(ratio, 1.0, rel_tol=1e-6)
     print("PASS")
-    print(f"  form rel. mismatch={rel:.4f}")
+    print(f"  form rel. mismatch (1/2)={rel:.2e}")
+    print(f"  wrong-coeff residual (1/4)={rel_wrong:.4f} (expected fail)")
     print("  constant-W recovery: exact")
     print("  I2 density > 0 for d=2,3,4")
     print("  I2 ~ 1/(d k^2) at large k")
-    return {"rel": rel}
+    return {"rel": rel, "rel_wrong": rel_wrong}
 
 if __name__ == "__main__":
     main()
