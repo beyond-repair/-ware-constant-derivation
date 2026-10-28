@@ -50,8 +50,9 @@ def test_discrete_form_matches_operator_coefficient():
     out = proofs_5r.main()
     # Operator-consistent 1/2 coefficient: residual under tight tolerance.
     assert out["rel"] < 1e-8
-    # Wrong coefficient residual must remain distinguishable.
-    assert out.get("rel_wrong", 1.0) > 1e-4
+    # Wrong coefficient residual must be present and distinguishable.
+    assert "rel_wrong" in out
+    assert out["rel_wrong"] > 1e-4
 
 
 def test_imaginary_part_quadrature_tracks_analytic():
