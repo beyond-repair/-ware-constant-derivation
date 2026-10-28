@@ -1,7 +1,8 @@
 # Action Principle for W — Proof and Derivation Ledger
 
 **Review version:** 2026-09-23  
-**Addendum:** 2026-10-01 pinch-family falsification
+**Addendum:** 2026-10-01 pinch-family falsification  
+**Addendum:** 2026-10-28 Proof 5R coefficient correction (1/4 → 1/2)
 
 **Rule:** Do not promote a model assumption, regulator-dependent result, phenomenological parameter, or unresolved extension into a derived theorem.
 
@@ -37,9 +38,11 @@ Constant limit DERIVED: K_sym[W_0] = omega^2 I - W_0 H_0.
 
 Finite graph: K_sym automatically Hermitian. DERIVED.
 
-Continuum form DERIVED on C_c^infty:
+Continuum form DERIVED on C_c^infty (coefficient corrected 2026-10-28):
 
-    Q_W[f] = int omega^2 f^2 - int W |grad f|^2 + (1/4) int (nabla^2 W) f^2.
+    Q_W[f] = int omega^2 f^2 - int W |grad f|^2 + (1/2) int (nabla^2 W) f^2.
+
+(Previous ledger and proof text used 1/4; independent integration by parts from the locked operator establishes 1/2. See PROOF_5R_KSYM.md.)
 
 Kato-Rellich for the whole insertion REJECTED (second-order, not bounded).
 
@@ -101,6 +104,7 @@ Sierpinski map R(z)=z(5-z) does not imply W(n)=0.08 exp[0.23(n-3)].
 
 Constant-W action principle: DERIVED.
 Local K_sym consistency + finite-graph Hermitianity: DERIVED.
+Continuum quadratic form (coeff 1/2): DERIVED (corrected 2026-10-28).
 Unrenormalized Z_loop<0 for the stated kernel: DERIVED (model-specific).
 Renormalized propagating W(x): OPEN.
 W=0.08, 0.23, W(n), propulsion: NOT DERIVED.
