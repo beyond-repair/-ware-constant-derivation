@@ -46,10 +46,12 @@ def test_pinch_cubic_is_circular():
     assert any(abs(x - 0.08) > 0.5 for x in others)
 
 
-def test_discrete_form_is_not_exact():
+def test_discrete_form_matches_operator_coefficient():
     out = proofs_5r.main()
-    # Neumann grid form vs matrix insertion. The script allows 0.15; equality fails.
-    assert 0.0 < out["rel"] < 0.15
+    # Operator-consistent 1/2 coefficient: residual under tight tolerance.
+    assert out["rel"] < 1e-8
+    # Wrong coefficient residual must remain distinguishable.
+    assert out.get("rel_wrong", 1.0) > 1e-4
 
 
 def test_imaginary_part_quadrature_tracks_analytic():
